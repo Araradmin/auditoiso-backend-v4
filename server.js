@@ -59,3 +59,14 @@ const start = async () => {
 };
 
 start();
+import mongoose from "mongoose";
+
+setTimeout(() => {
+  console.log("🔎 Verificación directa de conexión MongoDB...");
+  if (mongoose.connection && mongoose.connection.db) {
+    console.log("📚 Base actual:", mongoose.connection.db.databaseName);
+  } else {
+    console.log("⚠️ No hay conexión activa reportada por Mongoose");
+  }
+}, 5000);
+
